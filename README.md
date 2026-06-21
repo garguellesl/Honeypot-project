@@ -19,7 +19,7 @@ LED/buzzer físico cada vez que se detecta un nuevo ataque.
 
 ![Arquitectura](docs/architecture.svg)
 
-## ✨ Qué hace
+##  Qué hace
 
 - **Honeypot SSH** (puerto 2222) construido con `paramiko`: handshake
   SSH real, pero la autenticación siempre falla tras registrar usuario
@@ -33,7 +33,7 @@ LED/buzzer físico cada vez que se detecta un nuevo ataque.
 - **Alerta física opcional** vía ESP32 (LED + buzzer) cuando entra un
   ataque nuevo — conecta la parte software con la de hardware.
 
-## 🧱 Arquitectura
+##  Arquitectura
 
 ```
 Atacante → Honeypot SSH/Telnet (Raspberry Pi) → SQLite → API Flask → Dashboard web
@@ -41,7 +41,7 @@ Atacante → Honeypot SSH/Telnet (Raspberry Pi) → SQLite → API Flask → Das
                                                    ESP32 (LED/buzzer, opcional)
 ```
 
-## 🔧 Hardware necesario
+##  Hardware necesario
 
 | Componente | Notas |
 |---|---|
@@ -50,7 +50,7 @@ Atacante → Honeypot SSH/Telnet (Raspberry Pi) → SQLite → API Flask → Das
 | LED + resistencia 220Ω (opcional) | GPIO 2 |
 | Buzzer activo (opcional) | GPIO 4 |
 
-## 🚀 Instalación
+##  Instalación
 
 ```bash
 git clone <tu-repo>
@@ -96,7 +96,7 @@ Abre `esp32_alert/esp32_alert.ino` en el IDE de Arduino, instala las
 librerías `WiFi`, `HTTPClient` y `ArduinoJson`, edita `SSID`,
 `PASSWORD` y `DASHBOARD_HOST`, y súbelo a la placa.
 
-## 🛡️ Consideraciones de seguridad
+##  Consideraciones de seguridad
 
 - Despliega esto en un segmento de red controlado (DMZ / VLAN) si vas
   a exponerlo a internet — un honeypot mal aislado puede convertirse
@@ -106,7 +106,7 @@ librerías `WiFi`, `HTTPClient` y `ArduinoJson`, edita `SSID`,
 - Este proyecto está pensado con fines educativos y de investigación
   defensiva (blue team), no para atacar a terceros.
 
-## 📂 Estructura del repositorio
+##  Estructura del repositorio
 
 ```
 iot-honeypot-dashboard/
@@ -118,7 +118,7 @@ iot-honeypot-dashboard/
 └── requirements.txt
 ```
 
-## 🗺️ Posibles ampliaciones
+##  Posibles ampliaciones
 
 - Persistir logs en PostgreSQL/TimescaleDB para series temporales largas.
 - Añadir un honeypot HTTP simulando un panel de cámara IP.
