@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8A93A6"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" fill="#0B1220"/>
+
+  <!-- Atacante -->
+  <rect x="40" y="60" width="160" height="70" rx="8" fill="#1F2C45" stroke="#C0533E" stroke-width="1.5"/>
+  <text x="120" y="90" fill="#ECE6DA" font-size="14" text-anchor="middle" font-weight="600">Atacante /</text>
+  <text x="120" y="108" fill="#ECE6DA" font-size="14" text-anchor="middle" font-weight="600">escáner de red</text>
+
+  <!-- Raspberry Pi box -->
+  <rect x="320" y="30" width="260" height="220" rx="10" fill="#121B2E" stroke="#1F2C45" stroke-width="1.5"/>
+  <text x="450" y="55" fill="#E8A33D" font-size="13" text-anchor="middle" font-weight="700">RASPBERRY PI</text>
+
+  <rect x="340" y="70" width="220" height="40" rx="6" fill="#1F2C45"/>
+  <text x="450" y="95" fill="#ECE6DA" font-size="12.5" text-anchor="middle">Honeypot Telnet (:2323)</text>
+
+  <rect x="340" y="120" width="220" height="40" rx="6" fill="#1F2C45"/>
+  <text x="450" y="145" fill="#ECE6DA" font-size="12.5" text-anchor="middle">Honeypot SSH (:2222)</text>
+
+  <rect x="340" y="170" width="220" height="40" rx="6" fill="#1F2C45"/>
+  <text x="450" y="195" fill="#4FB6A8" font-size="12.5" text-anchor="middle">SQLite (honeypot.db)</text>
+
+  <!-- Dashboard box -->
+  <rect x="650" y="30" width="210" height="120" rx="10" fill="#121B2E" stroke="#1F2C45" stroke-width="1.5"/>
+  <text x="755" y="55" fill="#E8A33D" font-size="13" text-anchor="middle" font-weight="700">DASHBOARD</text>
+  <rect x="670" y="70" width="170" height="35" rx="6" fill="#1F2C45"/>
+  <text x="755" y="93" fill="#ECE6DA" font-size="12" text-anchor="middle">Flask API (:5000)</text>
+  <rect x="670" y="112" width="170" height="35" rx="6" fill="#1F2C45"/>
+  <text x="755" y="135" fill="#ECE6DA" font-size="12" text-anchor="middle">Panel web (navegador)</text>
+
+  <!-- ESP32 box -->
+  <rect x="650" y="330" width="210" height="100" rx="10" fill="#121B2E" stroke="#1F2C45" stroke-width="1.5"/>
+  <text x="755" y="355" fill="#E8A33D" font-size="13" text-anchor="middle" font-weight="700">ESP32 (opcional)</text>
+  <rect x="670" y="370" width="170" height="40" rx="6" fill="#1F2C45"/>
+  <text x="755" y="395" fill="#ECE6DA" font-size="12" text-anchor="middle">LED + buzzer de alerta</text>
+
+  <!-- Browser -->
+  <rect x="650" y="200" width="210" height="60" rx="10" fill="#121B2E" stroke="#1F2C45" stroke-width="1.5"/>
+  <text x="755" y="235" fill="#ECE6DA" font-size="13" text-anchor="middle">Tú, viendo el panel</text>
+
+  <!-- Arrows -->
+  <line x1="200" y1="95" x2="338" y2="90" stroke="#8A93A6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="265" y="80" fill="#8A93A6" font-size="11">intento conexión</text>
+
+  <line x1="200" y1="100" x2="338" y2="140" stroke="#8A93A6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <line x1="450" y1="110" x2="450" y2="168" stroke="#8A93A6" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="160" x2="450" y2="168" stroke="#8A93A6" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <line x1="560" y1="190" x2="668" y2="88" stroke="#4FB6A8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="610" y="140" fill="#4FB6A8" font-size="11">lee datos</text>
+
+  <line x1="755" y1="150" x2="755" y2="198" stroke="#8A93A6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="765" y="178" fill="#8A93A6" font-size="11">HTTP</text>
+
+  <line x1="755" y1="150" x2="755" y2="328" stroke="#E8A33D" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="800" y="250" fill="#E8A33D" font-size="11">polling /api/stats</text>
+
+  <text x="450" y="440" fill="#8A93A6" font-size="12" text-anchor="middle">
+    El atacante nunca llega a obtener acceso real: solo interactúa con los honeypots, que únicamente registran el intento.
+  </text>
+</svg>

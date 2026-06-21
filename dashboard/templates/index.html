@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trampa // Honeypot IoT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <div>
+      <h1>TRAMPA</h1>
+      <p class="brand-sub">Honeypot IoT &mdash; panel de monitorización</p>
+    </div>
+  </div>
+  <div class="status">
+    <span class="status-dot"></span>
+    <span id="status-text">en escucha</span>
+  </div>
+</header>
+
+<main>
+  <section class="stat-row">
+    <div class="stat-card">
+      <span class="stat-label">Intentos totales</span>
+      <span class="stat-value" id="stat-total">&mdash;</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">IPs únicas</span>
+      <span class="stat-value" id="stat-ips">&mdash;</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Protocolo dominante</span>
+      <span class="stat-value" id="stat-protocol">&mdash;</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Última captura</span>
+      <span class="stat-value" id="stat-last">&mdash;</span>
+    </div>
+  </section>
+
+  <section class="grid">
+
+    <div class="panel radar-panel">
+      <h2>Barrido en vivo</h2>
+      <div class="radar" id="radar">
+        <svg viewBox="0 0 200 200" id="radar-svg">
+          <circle cx="100" cy="100" r="95" class="radar-ring"></circle>
+          <circle cx="100" cy="100" r="63" class="radar-ring"></circle>
+          <circle cx="100" cy="100" r="31" class="radar-ring"></circle>
+          <line x1="100" y1="5" x2="100" y2="195" class="radar-cross"></line>
+          <line x1="5" y1="100" x2="195" y2="100" class="radar-cross"></line>
+          <g id="radar-sweep">
+            <path d="M100,100 L100,5 A95,95 0 0,1 167,33 Z" class="radar-beam"></path>
+          </g>
+          <g id="radar-pings"></g>
+        </svg>
+      </div>
+      <p class="radar-caption">Cada punto es un intento de conexión reciente</p>
+    </div>
+
+    <div class="panel">
+      <h2>Intentos por hora</h2>
+      <canvas id="timeline-chart" height="180"></canvas>
+    </div>
+
+    <div class="panel">
+      <h2>Credenciales más probadas</h2>
+      <table class="data-table">
+        <thead><tr><th>usuario</th><th>contraseña</th><th>veces</th></tr></thead>
+        <tbody id="credentials-body"></tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>Atacantes más activos</h2>
+      <table class="data-table">
+        <thead><tr><th>IP</th><th>país</th><th>veces</th></tr></thead>
+        <tbody id="ips-body"></tbody>
+      </table>
+    </div>
+
+    <div class="panel terminal-panel">
+      <h2>Registro en directo</h2>
+      <div class="terminal" id="terminal"></div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>Honeypot IoT &mdash; uso educativo y defensivo. No expongas este servicio fuera de una red controlada sin entender las implicaciones.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
